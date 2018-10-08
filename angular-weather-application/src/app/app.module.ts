@@ -8,8 +8,9 @@ import { ForecastComponent } from './forecast/forecast.component';
 import { RouterModule , Routes} from '@angular/router';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/current-weather', pathMatch: 'full'},
   {path: 'current-weather', component: WeatherComponent},
-  {path: '5-day-forecast', component: HeaderComponent}
+  {path: '5-day-forecast', component: ForecastComponent}
 ];
 
 @NgModule({
@@ -26,4 +27,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
