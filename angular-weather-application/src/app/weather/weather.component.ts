@@ -1,3 +1,5 @@
+import { WeatherModel } from './../weather.model';
+import { WeatherService } from './../weather.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-
-  constructor() { }
+  myWeather: WeatherModel;
+  constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
+    this.myWeather = this.weatherService.weatherNow();
+    console.log(this.myWeather);
   }
 
 }

@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { WeatherComponent } from './weather/weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { RouterModule , Routes} from '@angular/router';
+import { WeatherService } from './weather.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/current-weather', pathMatch: 'full'},
@@ -24,7 +25,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
