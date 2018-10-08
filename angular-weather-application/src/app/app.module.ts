@@ -7,6 +7,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { RouterModule , Routes} from '@angular/router';
 import { WeatherService } from './weather.service';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {path: '', redirectTo: '/current-weather', pathMatch: 'full'},
@@ -23,7 +24,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

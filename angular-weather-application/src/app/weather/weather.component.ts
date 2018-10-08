@@ -8,12 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-  myWeather: WeatherModel;
+  myWeather: WeatherModel = new WeatherModel('', '', '', '', '', '');
+  location;
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
-    this.myWeather = this.weatherService.weatherNow();
-    console.log(this.myWeather);
+    navigator.geolocation.getCurrentPosition((pos) => {
+      this.location = pos.coords;
+      console.log(this.location);
+      const lat = this.location.latitude;
+      const lon = this.location.longitude;
+      console.log(lat);
+      console.log(lon);
+      this.weatherService.localWeather(lat, lon).subscribe(data => {
+        this.myWeather = new WeatherModel(data.name, data.main.temp + '9\xB0' + 'C',
+          'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png', data.weather[0].description,
+                                          'Min: ' + data.main.temp_min + '9\xB0' + 'C', 'Max: ' + data.main.temp_max + '9\xB0' + 'C');
+      });
+    });
   }
 
 }

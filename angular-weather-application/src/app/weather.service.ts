@@ -1,21 +1,21 @@
 import { WeatherModel } from './weather.model';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Http, Response } from '@angular/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
-  current: WeatherModel = {
-    cityName: 'New Delhi',
-    temp: '35',
-    icon: 'sun',
-    weatherType: 'sunny',
-    tempMin: '25',
-    tempMax: '40'
-  };
-  constructor() { }
+  location;
+  myWeather: WeatherModel;
+  constructor(private http: HttpClient) { }
 
-  weatherNow () {
-    return this.current;
+  localWeather(lat: string, lon: string) {
+      return this.http.get('https://api.openweathermap.org/data/2.5/weather?lat=' +
+                             lat + '&lon=' + lon
+                              + '&appid=789e26faae68a5e88e56a40ff0dbb70e&units=imperial')
+                              .pipe(map((response: Response) => response));
   }
 }
