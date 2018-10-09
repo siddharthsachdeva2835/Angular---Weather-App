@@ -2,7 +2,15 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #64605a;
     text-align: center;
-    margin: 50px;
+    margin-top: 50px;
+}
+.weather {
+    margin-top: 30px;
+}
+.weather-item {
+    padding: 20px;
+    display: inline-block;
+    border: 1px solid #64605a;
 }
 input {
     padding: 10px;

@@ -3,4 +3,15 @@
     <input type="text" ngModel name="city" placeholder="Name of a city">
     <button type="submit" name="button">GO</button>
   </form>
+  <h2>{{cityName}}</h2>
+  <div class="weather">
+    <div *ngFor="let myWeather of weatherForecasts" class="weather-item">
+      <img src="{{myWeather.icon}}">
+      <h1>{{myWeather.cityName}}</h1>
+      <h2>{{myWeather.temp}}</h2>
+      <h3>{{myWeather.weatherType}}</h3>
+      <h4>{{myWeather.tempMin}}</h4>
+      <h4>{{myWeather.tempMax}}</h4>
+    </div>
+  </div>
 </div>

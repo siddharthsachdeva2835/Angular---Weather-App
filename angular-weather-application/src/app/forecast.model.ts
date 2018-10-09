@@ -4,3 +4,4 @@ export class ForecastModel {
         public tempMin: string, public tempMax: string) {
     }
 }
+

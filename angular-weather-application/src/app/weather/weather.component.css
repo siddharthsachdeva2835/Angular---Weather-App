@@ -4,6 +4,9 @@
     text-align: center;
     margin: 50px;
 }
+img {
+    width: 50px;
+}
 input {
     padding: 10px;
     height: 20px;
