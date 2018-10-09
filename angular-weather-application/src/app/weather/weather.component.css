@@ -21,6 +21,7 @@ input::placeholder{
     font-weight: 600;
 }
 button {
+    outline: none;
     position: relative;
     top: -1px;
     color: #FFFEF7;
