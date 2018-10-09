@@ -1,4 +1,8 @@
 <div class="container">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <input type="text" ngModel name="city" placeholder="Name of a city">
+    <button type="submit" name="button">GO</button>
+  </form>
   <h1>{{myWeather.cityName}}</h1>
   <h2>{{myWeather.temp}}</h2>
   <h3>{{myWeather.weatherType}}</h3>

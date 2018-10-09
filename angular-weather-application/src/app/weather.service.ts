@@ -18,4 +18,10 @@ export class WeatherService {
                               + '&appid=789e26faae68a5e88e56a40ff0dbb70e&units=imperial')
                               .pipe(map((response: Response) => response));
   }
+
+  cityWeather(city: string) {
+    return this.http.get('https://api.openweathermap.org/data/2.5/weather?q='
+                          + city + '&appid=789e26faae68a5e88e56a40ff0dbb70e&units=imperial')
+                          .pipe(map((response: Response) => response));
+  }
 }
